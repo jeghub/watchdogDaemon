@@ -1,0 +1,11 @@
+#ignore all
+*
+
+#allow only usefull files
+!src
+!src/*
+!init_script
+!init_script/*
+!CMakefile.txt
+!README.MD
+!.gitignore

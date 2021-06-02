@@ -1,0 +1,12 @@
+[Unit]
+Description=Simple Watchdog Daemon
+
+[Service]
+Type=forking
+User=root
+WorkingDirectory=/
+ExecStart=/usr/sbin/wdogd -b
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
