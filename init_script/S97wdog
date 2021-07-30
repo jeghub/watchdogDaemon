@@ -1,0 +1,39 @@
+#!/bin/sh
+#
+# Start wdogd daemon
+#
+
+WDOG_ARGS="-d -b --Devname=/dev/watchdog0"
+WDOG_PATH="/home/user/wdogd"
+
+start() {
+  echo "Starting wdogd : "
+  umask 077
+  start-stop-daemon -S -q -p /var/run/wdogd.pid --exec $WDOG_PATH -- $WDOG_ARGS
+  [ $? = 0 ] && echo "OK" || echo "FAIL"
+}
+
+stop() {
+   echo "Stopping wdogd : "
+   start-stop-daemon -K -q -p /var/run/wdogd.pid
+   [ $? = 0 ] && echo "OK" || echo "FAIL"
+}
+
+case "$1" in
+  start)
+    start
+    ;;
+  stop)
+    stop
+    ;;
+  restart|reload)
+    stop
+    start
+    ;;
+  *)
+    echo "Usage: $0 {start|stop|restart|reload}" >&2
+    exit 1
+    ;;
+esac
+
+exit 0
