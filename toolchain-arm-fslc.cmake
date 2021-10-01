@@ -7,6 +7,8 @@ set(cross_prefix /opt/fslc-framebuffer/2.6.2/sysroots/x86_64-fslcsdk-linux/usr/b
 set(CMAKE_C_COMPILER ${cross_prefix}arm-fslc-linux-gnueabi-gcc)
 set(CMAKE_CXX_COMPILER ${cross_prefix}arm-fslc-linux-gnueabi-g++)
 
+add_compile_options(-march=armv7-a -mthumb -mfpu=neon -mfloat-abi=hard)
+
 set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
 set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
 set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
