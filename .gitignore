@@ -6,7 +6,7 @@
 !src/*
 !init_script
 !init_script/*
-!CMakefile.txt
+!CMakeLists.txt
 !README.MD
 !.gitignore
 !*.cmake
